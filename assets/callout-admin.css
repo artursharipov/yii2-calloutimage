@@ -12,25 +12,14 @@
     top: 0;
     left: 0;
 }
-/* .svgMap{
-    position: relative;
-}
-.svgMap img{
-    max-width: 100%;
-}
-#svg{
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-#svg circle{
+.callout-circle{
     r: 12px;
     fill: #505050;
     stroke-width: 6px;
     stroke: #ffffff;
     cursor: pointer;
 }
-
+/* 
 .tooltip .tooltip-inner{
     color: #000;
     font-size: 18px;

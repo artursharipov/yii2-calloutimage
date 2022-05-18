@@ -5,6 +5,7 @@ namespace common\modules\calloutImage\widgets;
 use Yii;
 use yii\base\Widget;
 use common\modules\calloutImage\models\CalloutImage;
+use common\modules\calloutImage\models\Functions;
  
 class CalloutAdminWidget extends Widget
 {
@@ -19,6 +20,7 @@ class CalloutAdminWidget extends Widget
         parent::init();
 
         $this->model = new CalloutImage;
+        $this->viewbox = Functions::generateViewBox($this->src);
     }
 
     public function run()

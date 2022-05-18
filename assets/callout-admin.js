@@ -6,6 +6,8 @@ $(document).on('click', '.callout-map', function(e){
         img_id = this.dataset.img_id,
         item_id = this.dataset.item_id;
 
+    createCircle(coords.x, coords.y, this);
+
     $('#modal-callout').find('.modal-body').load('/calloutimage/callout/add-marker', function(){
 
         document.getElementById('calloutimage-cx').value = coords.x;
@@ -19,7 +21,7 @@ $(document).on('click', '.callout-map', function(e){
 
     })
     
-})
+});
 
 function getCoords($this, $e){
 
@@ -32,6 +34,18 @@ function getCoords($this, $e){
     let y = Math.round(($e.clientY - $this.getBoundingClientRect().top) * ratio);
 
     return {x, y};
+}
+
+function createCircle(x, y, $this){
+
+    let el = document.createElementNS('http://www.w3.org/2000/svg', "circle");
+
+    el.setAttributeNS(null, 'cx', x);
+    el.setAttributeNS(null, 'cy', y);
+    el.setAttributeNS(null, 'class', "callout-circle");
+    // el.setAttributeNS(null, 'id', "newCircle")
+
+    $this.querySelector('.callout-svg').appendChild(el);
 }
 
 //SEND MODAL FORM
@@ -49,44 +63,8 @@ $(document).on('beforeSubmit', '#callout-image-form', function(){
     return false;
 
 });
-// var $svg = document.querySelector('#svg')
-
-// $svg.addEventListener('click', function(e){
-
-//     //coords
-//     let ratio = $svg.previousElementSibling.naturalWidth / $svg.previousElementSibling.width
-//     let x = Math.round((e.clientX - $svg.getBoundingClientRect().left) * ratio)
-//     let y = Math.round((e.clientY - $svg.getBoundingClientRect().top) * ratio)
-    
-//     if(id_circle = e.target.getAttribute('data-id')){
-
-//         document.querySelector('#circle-delete').value = id_circle
-//         document.querySelector('#deleting').textContent = e.target.getAttribute('data-title')
-//         $('#modalCircleDelete').modal()
-
-//     }else{
-//         createCircle(x, y)
-
-//         document.querySelector('#circle-cx').value = x
-//         document.querySelector('#circle-cy').value = y
-    
-//         $('#modalCircleCreate').modal()
-//     }
-    
-// })
 
 // //when closed and no save
-// $('#modalCircleCreate').on('hidden.bs.modal', function (e) {
-//     document.querySelector('#newCircle').remove()
-// })
-
-// function createCircle(x, y){
-//     let el = document.createElementNS('http://www.w3.org/2000/svg', "circle")
-
-//     el.setAttributeNS(null, 'cx', x)
-//     el.setAttributeNS(null, 'cy', y)
-//     el.setAttributeNS(null, 'class', "svg-circle")
-//     el.setAttributeNS(null, 'id', "newCircle")
-
-//     $svg.appendChild(el)
-// }
+$(document).on('hidden.bs.modal', '#modal-callout', function (e) {
+    console.log('Refresh')
+})
