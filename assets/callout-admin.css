@@ -1,0 +1,43 @@
+.callout-map{
+    cursor: crosshair;
+    position: relative;
+    border: 1px dashed;
+}
+.callout-img{
+    width: 100%;
+    max-width: 100%;
+}
+.callout-svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/* .svgMap{
+    position: relative;
+}
+.svgMap img{
+    max-width: 100%;
+}
+#svg{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#svg circle{
+    r: 12px;
+    fill: #505050;
+    stroke-width: 6px;
+    stroke: #ffffff;
+    cursor: pointer;
+}
+
+.tooltip .tooltip-inner{
+    color: #000;
+    font-size: 18px;
+    padding: 2px 8px;
+    background-color: #fff;
+    
+}
+.tooltip .arrow:before{
+    border-right-color: #fff;
+} */
