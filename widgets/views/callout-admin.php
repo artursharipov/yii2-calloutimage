@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="callout-map" style="width: <?=$width?>px" data-hash="sdfasdfds" data-item_id="" data-img_id="2">
+<div class="callout-map" style="width: <?=$width?>px" data-hash="<?=$hash?>" data-id="<?=$id?>">
 
     <img class="callout-img" src="<?=$src?>">
 

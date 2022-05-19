@@ -3,8 +3,7 @@ $(document).on('click', '.callout-map', function(e){
 
     let coords = getCoords(this, e)
         hash = this.dataset.hash,
-        img_id = this.dataset.img_id,
-        item_id = this.dataset.item_id;
+        id = this.dataset.id;
 
     createCircle(coords.x, coords.y, this);
 
@@ -14,8 +13,7 @@ $(document).on('click', '.callout-map', function(e){
         document.getElementById('calloutimage-cy').value = coords.y;
     
         document.getElementById('calloutimage-hash').value = hash;
-        document.getElementById('calloutimage-img_id').value = img_id;
-        document.getElementById('calloutimage-item_id').value = item_id;
+        document.getElementById('calloutimage-img_id').value = id;
 
         $('#modal-callout').modal();
 
@@ -36,7 +34,7 @@ function getCoords($this, $e){
     return {x, y};
 }
 
-function createCircle(x, y, $this){
+function createCircle(x, y, $this, $info = null){
 
     let el = document.createElementNS('http://www.w3.org/2000/svg', "circle");
 
@@ -66,5 +64,29 @@ $(document).on('beforeSubmit', '#callout-image-form', function(){
 
 // //when closed and no save
 $(document).on('hidden.bs.modal', '#modal-callout', function (e) {
-    console.log('Refresh')
+
+    $('#modal-callout .modal-body').html('');
+
+    $.ajax({
+        url: '/calloutimage/callout/markers',
+        type: 'GET',
+        data: {hash, id},
+        success: function(res){
+            initMarkers(res);
+        },
+    });
 })
+
+function initMarkers(string){
+    
+    let array = JSON.parse(string);
+
+    for (let key in array) {
+        let marker = array[key];
+        viewInfo(marker);
+    }
+}
+
+function viewInfo(marker){
+    console.log('View info current marker')
+}

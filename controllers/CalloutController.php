@@ -29,4 +29,12 @@ class CalloutController extends Controller
             'model' => $model
         ]);
     }
+
+    public function actionMarkers($hash, $id){
+        
+        $markers = CalloutImage::find()->where(['hash' => $hash, 'img_id' => $id])->asArray()->all();
+
+        return json_encode($markers);
+            
+    }
 }

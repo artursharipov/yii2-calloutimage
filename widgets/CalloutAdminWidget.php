@@ -10,16 +10,16 @@ use common\modules\calloutImage\models\Functions;
 class CalloutAdminWidget extends Widget
 {
 
+    public $id;
+    public $hash;
     public $src;
     public $viewbox;
     public $width = 300;
-    public $model;
 
     public function init()
     {
         parent::init();
 
-        $this->model = new CalloutImage;
         $this->viewbox = Functions::generateViewBox($this->src);
     }
 
@@ -29,7 +29,8 @@ class CalloutAdminWidget extends Widget
             'src' => $this->src,
             'viewbox' => $this->viewbox,
             'width' => $this->width,
-            'model' => $this->model,
+            'id' => $this->id,
+            'hash' => $this->hash,
         ]);
     }
 
