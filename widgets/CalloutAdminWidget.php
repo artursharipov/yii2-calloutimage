@@ -10,7 +10,7 @@ use common\modules\calloutImage\models\Functions;
 class CalloutAdminWidget extends Widget
 {
 
-    public $id;
+    public $img_id;
     public $hash;
     public $src;
     public $viewbox;
@@ -29,7 +29,7 @@ class CalloutAdminWidget extends Widget
             'src' => $this->src,
             'viewbox' => $this->viewbox,
             'width' => $this->width,
-            'id' => $this->id,
+            'img_id' => $this->img_id,
             'hash' => $this->hash,
         ]);
     }

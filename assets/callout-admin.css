@@ -1,22 +1,66 @@
 .callout-map{
-    cursor: crosshair;
     position: relative;
-    border: 1px dashed;
 }
 .callout-img{
     width: 100%;
     max-width: 100%;
 }
-.callout-svg{
+.callout-container-info{
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
 }
+.callout-svg{
+    cursor: crosshair;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.callout-info{
+    position: absolute;
+    z-index: 11;
+    transform: translateY(-100%);
+    border-bottom: 1px dashed;
+}
+.callout-info span{
+    font-size: 13px;
+    color: #000;
+    display: block;
+    background-color: #fff;
+    padding: 2px 6px;
+    transform: translateY(50%);
+    white-space: nowrap;
+}
+/* Вариант с угловыми стрелками */
+/* .callout-info{
+    position: absolute;
+    z-index: 11;
+    padding: 2px 6px;
+    font-size: 12px;
+    transform: translate(25px, -150%);
+    color: #000;
+    background-color: #fff;
+}
+.callout-info::before{
+    content: "";
+    height: 100%;
+    width: 20px;
+    border-left: 1px dashed;
+    border-top: 1px dashed;
+    position: absolute;
+    left: -25px;
+    bottom: 0;
+    transform: translateY(50%);
+} */
 .callout-circle{
-    r: 12px;
-    fill: #505050;
-    stroke-width: 6px;
-    stroke: #ffffff;
+    r: 4px;
+    fill: #fff;
+    stroke-width: 3px;
+    stroke: #000;
     cursor: pointer;
 }
 /* 

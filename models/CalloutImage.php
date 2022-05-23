@@ -17,6 +17,8 @@ use Yii;
  */
 class CalloutImage extends \yii\db\ActiveRecord
 {
+    public $info;
+    
     /**
      * {@inheritdoc}
      */

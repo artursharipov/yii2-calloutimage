@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="callout-map" style="width: <?=$width?>px" data-hash="<?=$hash?>" data-id="<?=$id?>">
+<div class="callout-map" style="width: <?=$width?>px" data-hash="<?=$hash?>" data-img_id="<?=$img_id?>">
 
     <img class="callout-img" src="<?=$src?>">
 
@@ -23,6 +23,8 @@
         <?php //endforeach ?>
 
     </svg>
+
+    <div class="callout-container-info"></div>
     
 </div>
 
