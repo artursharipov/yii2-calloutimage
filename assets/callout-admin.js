@@ -64,13 +64,13 @@ function createCallout(cx, cy, $this, $info = null){
 
     el.style.top = y+'px';
 
-    if(cx > svg.clientWidth/2){
-        let paddingLeft = svg.clientWidth - cx + 20;
+    if(x > svg.clientWidth/2){
+        let paddingLeft = svg.clientWidth - x + 20;
         el.style.left = x+'px';
         el.style.paddingLeft = paddingLeft+'px';
     }else{
-        let paddingRight = cx + 20;
-        let right = svg.clientWidth - cx;
+        let paddingRight = x + 20;
+        let right = svg.clientWidth - x;
         el.style.right = right+'px';
         el.style.paddingRight = paddingRight+'px';
     }
